@@ -1,10 +1,17 @@
 Samples repository
 
-To build the samples, get the IOx services SDK comprising header files and
-libraries and untar them under the root of the specific sample to build.
+IOx Services Samples depend on IOx Services SDK which is a set of
+libraries/infrastructure than enable micro service ecosystem.
 
-The Makefile under each sample assumes that SDK is copied under
-sdk/include and sdk/libs before the developer tries to compile the sample.
+For packaging these services/apps, there are two ways
 
-Bundling the service as part of a LxC container, please refer to the
-IOx Services documentation.
+- Docker enabled SDE, the samples container docker files needed to pull
+artifacts from devhub and create docker style containers.
+
+- Native LXC containers, Bundling the service as a LxC container, please refer to the
+IOx SDK documentation. IOx SDK is a bunch of tool chains and utilities
+needed to create a IOx installable, that can result in bringing up LxC
+on a Iox enabled device.
+
+- IOx Servics can be deployed using 'ioxclient' only as of now and Fog
+Director does not support services as yet.
