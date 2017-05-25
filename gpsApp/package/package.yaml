@@ -1,0 +1,42 @@
+descriptor-schema-version: "2.3"
+
+info:
+  name: GPS application
+  description: Sample Application that makes use of GPS Protocol Handler
+  version: "0.9.4"
+  author-link: "http://www.cisco.com"
+  author-name: "Cisco Systems"
+
+app:
+  # Indicate app type (vm, paas, lxc etc.,)
+  cpuarch: "x86_64"
+  type: docker
+
+  depends-on:
+    services:
+      -
+        id: "urn:cisco:system:service:nbi"
+        min-api-version: 1
+        required: true
+        label: nbi
+      -
+        id: "urn:cisco:system:service:protocolHandler:gps"
+        min-api-version: 1
+        required: true
+        label: gps
+
+  resources:
+    profile: custom
+    cpu: "100"
+    disk: "20"
+    memory: "50"
+    oauth: [OauthClient]
+
+    network:
+     -
+       interface-name: eth0
+
+  # Specify runtime and startup
+  startup:
+    rootfs: rootfs.tar
+    target: ["/usr/share/gpsapp/gpsapp.sh start"]

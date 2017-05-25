@@ -1,0 +1,14 @@
+{
+   "dataSchemaId":"VCNL4000SensorSchema",
+   "description":"Data Schema for sensor emitting ambience values",
+   "fields":[
+      {
+         "name":"ambience",
+         "type":"short"
+      },
+      {
+         "name":"proximity",
+         "type":"short"
+      }
+   ]
+}

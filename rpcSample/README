@@ -1,0 +1,11 @@
+This is a GPS mimicing protocol handler that sends GPS data from a
+pre-manufactured data set.
+
+To Set GPS interval
+
+POST https://<NBI-IP:NBI-PORT>/api/v1/mw/setGPSInterval
+
+{
+  		"gps-interval-seconds" : <int>
+  		
+}

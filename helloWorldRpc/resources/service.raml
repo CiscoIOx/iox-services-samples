@@ -1,0 +1,19 @@
+#%RAML 0.8
+
+title: Hello World Service
+iox.service: Hello_World
+baseUri: /api/v1/mw
+securitySchemes: !include security.raml
+securedBy: [basic, token]
+version: v1
+/helloWorld:
+  get:
+    description: Receive hello world greeting
+    iox.operation:
+      name: invokeHelloWorld
+    responses:
+      200:
+        body:
+          application/json:
+          text/json:
+

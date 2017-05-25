@@ -1,0 +1,18 @@
+{ 
+   "dataSchemaId":"rpcSchema1",
+   "description":"Data Schema for GPS co-ordinates",
+   "fields":[  
+      {  
+         "name":"longitude1",
+         "type":"float"
+      },
+      {  
+         "name":"latitude1",
+         "type":"float"
+      },
+      {  
+         "name":"speed1",
+         "type":"float"
+      }
+   ]
+}

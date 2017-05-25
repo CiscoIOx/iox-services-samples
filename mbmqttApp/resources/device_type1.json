@@ -1,0 +1,43 @@
+{
+    "deviceTypeId": "Dnp3Type1",
+    "protocol": "dnp3",
+    "protocolHandler": "urn:cisco:system:service:protocolHandler:dnp3",
+    "sensors": [
+        {
+            "name": "Sensor1",
+            "dataSchemaId": "Dnp3Schema",
+            "contentHandler": {
+                "contentType":"raw",
+                "contentMappings":[
+                    {
+                        "fieldName":"bool1",
+                        "expression":".",
+                        "protocolProperties":{  
+                            "style":"digital",
+                            "mode":"read",
+                            "offset":"0"
+                         }
+                    },
+                     {
+                        "fieldName":"analog1",
+                        "expression":".",
+                        "protocolProperties":{  
+                            "style":"analog",
+                            "mode":"read",
+                            "offset":"0"
+                         }
+                    },
+                     {
+                        "fieldName":"counter1",
+                        "expression":".",
+                        "protocolProperties":{  
+                            "style":"counter",
+                            "mode":"read",
+                            "offset":"0"
+                         }
+                    }
+                ]
+            }
+        }
+    ]
+}

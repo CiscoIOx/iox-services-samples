@@ -1,0 +1,21 @@
+{
+  "deviceId": "IOX_Sim",
+  "deviceTypeId": "VCNL_GPS",
+  "metadata": {
+    "skuCode": "sk3465tyu",
+    "serialNo": "567e",
+    "urn": "shipping/container/A"
+  },
+  "connectionProperties":[
+        {
+            "protocol":"modbus",
+            "properties": {
+                "host":"10.105.38.188",
+                "port":502,
+                "unitId":0,
+                "pollingInterval":2000,
+                "healthCheckInterval":5000
+            }
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+  "deviceId": "SampleDNP3Device",
+  "deviceTypeId": "Dnp3Type1",
+  "metadata": {
+    "skuCode": "sk3465tyu",
+    "serialNo": "567e",
+    "urn": "factory/pune/Volvo"
+  },
+  "connectionProperties":[
+        {
+            "protocol":"dnp3",
+            "properties": {
+                "host":"10.78.106.21",
+                "port":20000,
+                "integrityInterval":5,
+                "exceptionInterval":10,
+                "localAddr":1,
+                "remoteAddr":10,
+                "unitId":1
+            }
+        }
+    ]
+}

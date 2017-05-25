@@ -1,0 +1,18 @@
+{
+   "dataSchemaId":"Dnp3Schema",
+   "description":"Sample Schema for DNP3 device",
+   "fields":[
+      {
+         "name":"bool1",
+         "type":"boolean"
+      },
+      {
+         "name":"analog1",
+         "type":"unsigned long"
+      },
+      {
+         "name":"counter1",
+         "type":"unsigned integer"
+      }
+   ]
+}

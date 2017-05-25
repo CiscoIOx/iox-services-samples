@@ -1,0 +1,18 @@
+{ 
+   "dataSchemaId":"gpsSchema",
+   "description":"Data Schema for GPS co-ordinates",
+   "fields":[  
+      {  
+         "name":"longitude",
+         "type":"float"
+      },
+      {  
+         "name":"latitude",
+         "type":"float"
+      },
+      {  
+         "name":"speed",
+         "type":"float"
+      }
+   ]
+}

@@ -1,0 +1,5 @@
+{    
+	"gps-interval-seconds": 5,             
+	"streaming-enabled": true,                 
+	"topic" : "gps" 
+}

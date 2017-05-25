@@ -1,0 +1,23 @@
+#%RAML 0.8
+
+title: Random Temperature Service
+iox.service: urn:cisco:system:service:random-temperature
+baseUri: /api/v1/mw
+securitySchemes: !include security.raml
+securedBy: [basic, token]
+version: v1
+/setPublishTime:
+  post:
+    description: set random temperature time
+    iox.operation:
+      name: setPublishTime
+      payloadParameter: value
+    body:
+      application/json:
+      text/json:
+    responses:
+      200:
+        body:
+          application/json:
+          text/json:
+

@@ -1,0 +1,9 @@
+Average Temperature Service : It subscribes to the random temperature and then publishes the average temperature every 5 seconds to topic “system.temperature.average.event”
+Name of the service :  urn:cisco:system:service:average-temperature
+
+We can get the average temperature call calling the following API
+GET   https://<NBI-IP:PORT>/api/v1/mw/getAvgTemperature
+
+
+Following the the web socket topics:
+wss://<NBI-IP:PORT>/api/v1/mw/topics/system.temperature.average.event

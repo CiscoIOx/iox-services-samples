@@ -1,0 +1,12 @@
+Random Temperature Service : It publishes random temperature every 1 second by default to the topic “system.temperature.random.event”
+Name of the service : urn:cisco:system:service:random-temperature
+
+We can change the periodicity by calling the following API.
+PUT   https://<NBI-IP:PORT>/api/v1/mw/setPublishTime
+body :
+{  
+    "temperature-publish-time": 2
+}
+
+Following the the web socket topics:
+wss://<NBI-IP:PORT>/api/v1/mw/topics/system.temperature.random.event

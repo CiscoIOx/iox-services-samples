@@ -1,0 +1,38 @@
+descriptor-schema-version: "2.3"
+
+info:
+  name: RPC Service
+  description: GPS Sample Service
+  version: "0.9.4"
+  author-link: "http://www.cisco.com"
+  author-name: "Cisco Systems"
+
+service-bundle:
+   provides: [{id: "urn:cisco:system:service:protocolHandler:sample_rpc", api-version: 1,version: "0.9.4"}]
+
+app:
+  # Indicate app type (vm, paas, lxc etc.,)
+  cpuarch: "x86_64"
+  type: docker
+
+  depends-on:
+    services:
+      -
+        id: "urn:cisco:system:service:message-broker"
+        min-api-version: 1
+        required: true
+        label: message_broker
+  resources:
+    profile: custom
+    cpu: "200"
+    disk: "35"
+    memory: "30"
+
+    network:
+     -
+       interface-name: eth0
+
+  # Specify runtime and startup
+  startup:
+    rootfs: rootfs.tar
+    target: ["/usr/share/cservice/rpc/bin/rpcservice.sh start"]

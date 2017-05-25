@@ -1,0 +1,44 @@
+#%RAML 0.8
+
+title: GPS Service
+iox.service: urn:cisco:system:service:protocolHandler:sample_gps
+baseUri: /api/v1/mw
+securitySchemes: !include security.raml
+securedBy: [basic, token]
+version: v1
+/getGPSRaw:
+  get:
+    description: get raw GPS data
+    iox.operation:
+      name: getGPSRaw
+    responses:
+      200:
+        body:
+          application/json:
+          text/json:
+
+/getGPSParsed:
+  get:
+    description: get parsed GPS data
+    iox.operation:
+      name: getGPSParsed
+    responses:
+      200:
+        body:
+          application/json:
+          text/json:
+/setGPSInterval:
+  post:
+    description: set GPS polling interval
+    iox.operation:
+      name: setGPSInterval
+      payloadParameter: value
+    body:
+      application/json:
+      text/json:
+    responses:
+      200:
+        body:
+          application/json:
+          text/json:
+

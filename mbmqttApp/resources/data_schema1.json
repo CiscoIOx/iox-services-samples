@@ -1,0 +1,14 @@
+{
+   "dataSchemaId":"GPSSchema",
+   "description":"Data Schema for sensor emitting gps values",
+   "fields":[
+      {
+         "name":"latitude",
+         "type":"float"
+      },
+      {
+         "name":"longitude",
+         "type":"float"
+      }
+   ]
+}
