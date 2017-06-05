@@ -1,0 +1,61 @@
+{
+    "deviceTypeId": "VCNL_GPS",
+    "protocol": "modbus",
+    "protocolHandler": "urn:cisco:system:service:protocolHandler:modbus-c",
+    "sensors": [
+        {
+            "name": "LightSensor",
+            "dataSchemaId": "VCNL4000SensorSchema",
+            "contentHandler": {
+                "contentType":"raw",
+                "contentMappings":[
+                    {
+                        "fieldName":"ambience",
+                        "expression":".",
+                        "protocolProperties":{
+                            "style":"analog",
+                            "mode":"write",
+                            "registerRange":"40001-1"
+                         }
+                    },
+                    {
+                        "fieldName":"proximity",
+                        "expression":".",
+                        "protocolProperties":{
+                            "style":"analog",
+                            "mode":"write",
+                            "registerRange":"40002-1"
+                         }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "GPSSensor",
+            "dataSchemaId": "GPSSchema",
+            "contentHandler": {
+                "contentType":"raw",
+                "contentMappings":[
+                    {
+                        "fieldName":"latitude",
+                        "expression":".",
+                        "protocolProperties":{
+                            "style":"analog",
+                            "mode":"write",
+                            "registerRange":"40003-2"
+                         }
+                    },
+                    {
+                        "fieldName":"longitude",
+                        "expression":".",
+                        "protocolProperties":{
+                            "style":"analog",
+                            "mode":"write",
+                            "registerRange":"40005-2"
+                         }
+                    }
+                ]
+            }
+        }
+    ]
+}
