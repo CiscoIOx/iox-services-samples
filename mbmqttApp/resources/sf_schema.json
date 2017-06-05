@@ -1,0 +1,36 @@
+{
+   "policyId":"MQTTPolicy",
+   "displayName":"MQTT Policy",
+   "description":"An illustration of policy",
+   "dataSources":[
+      {
+         "type":"topic",
+         "topicProperties":{
+            "topicName":"system.devices.**"
+         }
+      }
+   ],
+   "policy":{
+      "inputBuffer":{
+         "noOfMessages":1024,
+         "dropStrategy":"lifo"
+      },
+      "storage":{
+         "type":"in-memory",
+         "inMemoryProperties":{
+            "noOfMessages":1024000,
+            "dropStrategy":"lifo"
+         }
+      }
+   },
+   "destinations":[
+      {
+         "type":"system:service:storeandforward:destination:mqtt",
+         "mqttProperties":{
+            "host":"10.105.38.188",
+            "topic":"MQTTPolicy",
+            "port":1883
+         }
+      }
+   ]
+}

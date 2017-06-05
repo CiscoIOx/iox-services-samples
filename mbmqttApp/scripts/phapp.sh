@@ -7,7 +7,7 @@ fi
 
 start_app() {
 	cd /usr/share/phapp
-	python ph_app.py
+	python ph_app.py 
 }
 
 _term() {

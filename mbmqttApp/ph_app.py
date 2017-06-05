@@ -13,6 +13,7 @@ from datetime import datetime
 import thread
 import time
 import ph_dm_config
+import ph_sf_config
 
 def web_socket_sub( protoName, topicName):
     print "Started thread"
@@ -63,6 +64,14 @@ def setup_modbus_data_models():
     print ("IOX_Sim device success")
     return 0
 
+def setup_mqtt_sf_policy():
+    ret = ph_sf_config.configure_sf("mqttstoreandforward", "sf_schema.json")
+    if ret == -1:
+        print ("MQTT Policy Configuration Failed")
+        return -1
+    print ("MQTT Policy success")
+    return 0
+
 def delete_modbus_data_models():
     ph_dm_config.delete_data_model("devices", "IOX_Sim")
     ph_dm_config.delete_data_model("devicetypes", "VCNL_GPS")
@@ -83,13 +92,18 @@ if setup_modbus_data_models() == -1:
     print("Failed to Create Modbus Data Models")
     exit
 
-print("Data Models successfully set")
+if setup_mqtt_sf_policy() == -1:
+    print("Failed to Create MQTT SF Policy")
+    exit
 	
 # Create two threads as follows
+import time
 try:
-   thread.start_new_thread( web_socket_sub, ("MODBUS", "system.devices.IOX_Sim.**", ) )
+    thread.start_new_thread( web_socket_sub, ("MODBUS", "system.devices.IOX_Sim.**", ) )
+    while 1:
+        try:
+            time.sleep(5)
+        except KeyboardInterrupt:
+            break
 except:
    print "Error: unable to start thread"
-
-while 1:
-   pass
