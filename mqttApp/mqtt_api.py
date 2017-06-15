@@ -16,7 +16,7 @@ def get_mqtt_config( ):
     con = httplib.HTTPSConnection("%s:%s" % (nbi_host, nbi_port))
     con.request(
         "GET", 
-        "api/v1/mw/mqttstoreandforward/policies/MQTTPolicy",
+        "/api/v1/mw/mqttstoreandforward/policies/MQTTPolicy",
 	None,
         headers
     )
@@ -47,17 +47,13 @@ def configure_mqtt_policy( fileName):
     con = httplib.HTTPSConnection("%s:%s" % (nbi_host, nbi_port))
     con.request(
         "POST", 
-        "api/v1/mw/mqttstoreandforward/policies/",
+        "/api/v1/mw/mqttstoreandforward/policies/",
         payload,
         headers
     )
     response = con.getresponse()
     print("%s %s %s" % (response.status, response.reason, response.read())) 
-    if response.status != 200 :
-        print ("Failed")
-        con.close()
-        return -1
-    print ("Success")
+
     con.close()
     return 0
 
@@ -73,7 +69,8 @@ def get_mqtt_policy( ):
     con = httplib.HTTPSConnection("%s:%s" % (nbi_host, nbi_port))
     con.request(
         "GET", 
-        "api/v1/mw/mqttstoreandforward/policies/MQTTPolicy",
+        "/api/v1/mw/mqttstoreandforward/policies/MQTTPolicy",
+        None,
         headers
     )
     response = con.getresponse()

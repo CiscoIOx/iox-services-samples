@@ -58,7 +58,7 @@ if ret == -1 :
 print("MQTT Configuration successfully done")
 	
 try:
-   t = Thread(target=web_socket_sub, args=("Store-And-Forward", "system.devices.**"))
+   t = Thread(target=web_socket_sub, args=("Store-And-Forward", "**"))
    t.start()
 except:
    print "Error: unable to start thread"
