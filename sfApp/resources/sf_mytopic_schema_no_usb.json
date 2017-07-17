@@ -1,0 +1,36 @@
+{
+   "policyId":"mytopicPolicy",
+   "displayName":"MyTopic Policy",
+   "description":"An illustration of policy",
+   "dataSources":[
+      {
+         "type":"topic",
+         "topicProperties":{
+            "topicName":"mytopic"
+         }
+      }
+   ],
+   "policy":{
+      "inputBuffer":{
+         "noOfMessages":1024,
+         "dropStrategy":"lifo"
+      },
+      "storage":{
+         "type":"in-memory",
+         "inMemoryProperties":{
+            "noOfMessages":1024000,
+            "dropStrategy":"lifo"
+         }
+      }
+   },
+   "destinations":[
+      {
+         "type":"system:service:storeandforward:destination:mqtt",
+         "mqttProperties":{
+            "host":"10.78.106.157",
+            "topic":"MytopicPolicy",
+            "port":1883
+         }
+      }
+   ]
+}
