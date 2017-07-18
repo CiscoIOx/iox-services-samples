@@ -6,9 +6,9 @@ This is a simple docker style IOx app that installs a store & forward (SF)
 policy and generates dummy data for the store & forward service.
 
 Once the app is started, it does the following.
-- Install a SF policy that reads from an NBI topic and pushes it to a mqtt sink
 - Create a message topic
-- Continously publish dummy data to the topic
+- Install a SF policy that reads from the topic and pushes it to an mqtt sink
+- Continuously publish dummy data to the topic
 
 By default, the app would install a persistent SF policy.
 The sample payload for an in-memory SF policy is also included.
