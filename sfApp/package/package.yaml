@@ -3,7 +3,7 @@ descriptor-schema-version: "2.5"
 info:
   name: Sample Store & Forward application
   description: Sample Application that makes use of Store & Forward service
-  version: "0.9.4"
+  version: "1.0.0"
   author-link: "http://www.cisco.com"
   author-name: "Cisco Systems"
 

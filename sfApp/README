@@ -1,0 +1,26 @@
+===============================================================================
+Sample Store & Forward application
+===============================================================================
+
+This is a simple docker style IOx app that installs a store & forward (SF)
+policy and generates dummy data for the store & forward service.
+
+Once the app is started, it does the following.
+- Install a SF policy that reads from an NBI topic and pushes it to a mqtt sink
+- Create a message topic
+- Continously publish dummy data to the topic
+
+By default, the app would install a persistent SF policy.
+The sample payload for an in-memory SF policy is also included.
+Please check the ./resources/ folder for the payloads.
+
+Steps to build:
+
+From the root folder, issue the following commands
+###
+sudo docker build -t sfapp .
+cd package/
+sudo ioxclient docker package sfapp .
+###
+This would generate the package.tar file which is the installable package.
+
