@@ -1,0 +1,41 @@
+descriptor-schema-version: "2.5"
+
+info:
+  name: GPS application
+  description: Sample Application that makes use of GPS Protocol Handler
+  version: "1.0.0"
+  author-link: "http://www.cisco.com"
+  author-name: "Cisco Systems"
+
+app:
+  # Indicate app type (vm, paas, lxc etc.,)
+  cpuarch: "x86_64"
+  type: docker
+
+  depends-on:
+    packages:
+      -
+        name: "IOxMotion"
+        version: "1.4.0"
+        services:
+          -
+            id: "urn:cisco:system:service:protocolHandler:gyroscope"
+            min-api-version: 1
+            required: true
+            label: gyro
+
+  resources:
+    profile: custom
+    cpu: "100"
+    disk: "20"
+    memory: "50"
+    oauth: [OauthClient]
+
+    network:
+     -
+       interface-name: eth0
+
+  # Specify runtime and startup
+  startup:
+    rootfs: rootfs.tar
+    target: ["/usr/share/motionapp/motionapp.sh start"]

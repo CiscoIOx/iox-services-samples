@@ -5,7 +5,8 @@ RUN opkg install python-pip
 RUN pip install oauth
 RUN pip install websocket-client
 
-ADD payload.json /usr/share/motionapp/resources/payload.json
-ADD main.py /usr/share/motionapp/main.py
+ADD resources/Config.json /usr/share/motionapp/resources/Config.json
 ADD oauth.py /usr/share/motionapp/oauth.py
-ADD scripts/motion.sh /usr/share/motionapp/motion.sh
+ADD motion_app.py /usr/share/motionapp/motion_app.py
+ADD motion_api.py /usr/share/motionapp/motion_api.py
+ADD scripts/motionapp.sh /usr/share/motionapp/motionapp.sh
