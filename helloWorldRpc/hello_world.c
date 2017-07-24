@@ -1,9 +1,20 @@
 #include "mlib_service.h"
 #include "mlib_log.h"
 #include "mlib_api.h"
+#include <time.h>
 
 void
 Sample_invoke_hello_world(void *link, json_t *rid, json_t *params) {
+    time_t timer;
+    char buffer[26];
+    char buffer1[256];
+    struct tm* tm_info;
+
+    time(&timer);
+    tm_info = localtime(&timer);
+
+    strftime(buffer, 26, "%Y-%m-%d %H:%M:%S", tm_info);
+
     if (!link || !rid ) {
         mlib_log_err("NULL input arguments");
         RPC.response(link, rid,
@@ -12,8 +23,9 @@ Sample_invoke_hello_world(void *link, json_t *rid, json_t *params) {
     }
 
     json_t *hello = json_object();
+    snprintf(buffer1, 256, "Hello World from IOx Micro Services - %s", buffer);
     json_object_set_new(hello, "Greeting", 
-			json_string("Hello World from IOx Micro Services"));
+			json_string(buffer1));
                     
     RPC.response(link, rid, hello);
 	json_decref(hello);
