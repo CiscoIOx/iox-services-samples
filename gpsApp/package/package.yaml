@@ -1,4 +1,4 @@
-descriptor-schema-version: "2.3"
+descriptor-schema-version: "2.5"
 
 info:
   name: GPS application
@@ -13,17 +13,13 @@ app:
   type: docker
 
   depends-on:
-    services:
+    packages:
       -
-        id: "urn:cisco:system:service:nbi"
-        min-api-version: 1
-        required: true
-        label: nbi
+        name: "IOxCore"
+        version: "1.4.0"
       -
-        id: "urn:cisco:system:service:protocolHandler:gps"
-        min-api-version: 1
-        required: true
-        label: gps
+        name: "IOxGPS"
+        version: "1.4.0"
 
   resources:
     profile: custom

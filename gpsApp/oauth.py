@@ -4,6 +4,8 @@ import urlparse
 import httplib
 import json
 from urllib import urlencode
+import ssl 
+ssl._create_default_https_context = ssl._create_unverified_context
 
 client_id = os.environ["OAUTH_CLIENT_ID"]
 client_secret = os.environ["OAUTH_CLIENT_SECRET"]

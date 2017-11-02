@@ -1,9 +1,12 @@
-FROM devhub-docker.cisco.com/iox-docker/base-x86_64
-RUN opkg update
-RUN opkg install python
-RUN opkg install python-pip
-RUN pip install oauth
+FROM gliderlabs/alpine:3.3
+RUN apk add --update \
+    python \
+    py-pip \
+  && rm -rf /var/cache/apk/*
+RUN pip install --upgrade pip
 RUN pip install websocket-client
+RUN pip install oauth
+RUN pip install requests==2.10.0
 
 ADD resources/GPS_Config.json /usr/share/gpsapp/resources/GPS_Config.json
 ADD oauth.py /usr/share/gpsapp/oauth.py
