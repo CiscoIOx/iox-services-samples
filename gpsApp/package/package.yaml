@@ -15,9 +15,6 @@ app:
   depends-on:
     packages:
       -
-        name: "IOxCore"
-        version: "1.4.0"
-      -
         name: "IOxGPS"
         version: "1.4.0"
 
