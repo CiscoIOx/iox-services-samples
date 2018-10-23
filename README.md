@@ -1,3 +1,5 @@
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/CiscoIOx/iox-services-samples)
+
 Samples repository
 
 IOx Services Samples depend on IOx Services SDK which is a set of
